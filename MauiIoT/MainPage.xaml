@@ -1,10 +1,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI"
              x:Class="MauiIoT.MainPage"
              BackgroundColor="{DynamicResource SecondaryColor}">
 
     <ScrollView Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
         <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*">
+            <zxing:CameraBarcodeReaderView
+			GridLayout.Row="0" GridLayout.RowSpan="3"
+			x:Name="barcodeView"
+			BarcodesDetected="BarcodesDetected"
+			 />
+
 
             <Label 
                 Text="Hello, World!"
@@ -28,6 +35,18 @@
                 FontAttributes="Bold"
                 x:Name="CounterLabel"
                 HorizontalOptions="Center" />
+
+            <zxing:BarcodeGeneratorView
+				x:Name="barcodeGenerator"
+				GridLayout.Column="1"
+				HorizontalOptions="Center"
+				VerticalOptions="Center"
+				HeightRequest="100"
+				WidthRequest="100"
+				ForegroundColor="DarkBlue"
+				Format="QrCode"
+				Value="Bla"
+				BarcodeMargin="1" />
 
             <Button 
                 Text="Click me"
