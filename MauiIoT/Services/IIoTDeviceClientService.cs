@@ -14,7 +14,7 @@ namespace MauiIoT.Services
 
         Task<bool> DisconnectAsync();
 
-        //Task SendEventAsync(Sensors sensorsData);
+        Task SendEventAsync(Sensors sensorsData);
         //Task SendReportedPropertiesAsync(ReportedDeviceProperties reportedDeviceProperties);
 
         //event EventHandler<SensorCommandPayload> CommandReceivedHandler;

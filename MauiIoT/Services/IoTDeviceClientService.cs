@@ -1,4 +1,4 @@
-﻿using MauiIoT.Models;
+using MauiIoT.Models;
 using Microsoft.Azure.Devices.Client;
 using Microsoft.Azure.Devices.Provisioning.Client;
 using Microsoft.Azure.Devices.Provisioning.Client.Transport;
@@ -170,15 +170,18 @@ namespace MauiIoT.Services
             var modelId = _deviceConfigService.ModelId;
             var dpsSymetricKey = _deviceConfigService.DeviceKey;
 
+            Debug.WriteLine("Provisioing device...");
+
             LastKnownConnectionStatus = ConnectionProgressStatus.Provisioning;
 
             using (var security = new SecurityProviderSymmetricKey(deviceId, dpsSymetricKey, null))
             {
-                using (var transport = new ProvisioningTransportHandlerAmqp())
+                Debug.WriteLine($"Security: {deviceId},{dpsSymetricKey}");
                 {
                     var provisioningClient = ProvisioningDeviceClient.Create(dpsGlobalEndpoint, dpsIdScope, security, transport);
 
                     var payload = GetProvisionPayload(modelId);
+                    Debug.WriteLine("Registering");
                     var regResult = await provisioningClient.RegisterAsync(payload);
 
                     if (regResult.Status == ProvisioningRegistrationStatusType.Assigned)

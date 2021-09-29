@@ -1,7 +1,7 @@
 ﻿using Foundation;
 using Microsoft.Maui;
 
-namespace MauiIoT
+namespace MauiIoT.Platforms.iOS
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

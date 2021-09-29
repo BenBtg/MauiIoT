@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace MauiIoT
+namespace MauiIoT.Platforms.MacCatalyst
 {
     public class Program
     {

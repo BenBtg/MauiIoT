@@ -70,6 +70,7 @@ namespace MauiIoT
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
 
+            builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<IDeviceConfigService, DeviceConfigService>();
             builder.Services.AddSingleton<IIoTDeviceClientService, IoTDeviceClientService>();
 

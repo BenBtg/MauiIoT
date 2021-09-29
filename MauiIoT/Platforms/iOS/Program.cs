@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace MauiIoT
+namespace MauiIoT.Platforms.iOS
 {
     public class Program
     {

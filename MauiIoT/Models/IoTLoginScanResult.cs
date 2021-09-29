@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MauiIoT
+namespace MauiIoT.Models
 {
     public class IoTLoginScanResult
     {
