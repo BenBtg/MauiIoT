@@ -26,20 +26,20 @@ namespace MauiIoT
                 .ConfigureLifecycleEvents(life =>
                 {
 #if __ANDROID__
-                    Platform.Init(MauiApplication.Current);
+                    global::Microsoft.Maui.Essentials.Platform.Init(MauiApplication.Current);
 
                     life.AddAndroid(android => android
                         .OnRequestPermissionsResult((activity, requestCode, permissions, grantResults) =>
                         {
-                            Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+                            global::Microsoft.Maui.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
                         })
                         .OnNewIntent((activity, intent) =>
                         {
-                            Platform.OnNewIntent(intent);
+                            global::Microsoft.Maui.Essentials.Platform.OnNewIntent(intent);
                         })
                         .OnResume((activity) =>
                         {
-                            Platform.OnResume();
+                            global::Microsoft.Maui.Essentials.Platform.OnResume();
                         }));
 #elif __IOS__
                     //life.AddiOS(ios => ios
